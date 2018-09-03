@@ -1,0 +1,19 @@
+{
+  "name": "reqctexpress",
+  "version": "1.0.0",
+  "description": "Boilerplate for React and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server" : "nodemon server.js"
+  },
+  "author": "MinSeok Kim",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
