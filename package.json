@@ -1,17 +1,23 @@
 {
   "name": "reqctexpress",
   "version": "1.0.0",
+  "private": true,
   "description": "Boilerplate for React and Express",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server" : "nodemon server.js"
+    "server": "nodemon server.js"
   },
   "author": "MinSeok Kim",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
