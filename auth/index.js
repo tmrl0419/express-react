@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express  = require('express');
 const bcrypt = require('bcrypt');
 const  router = express.Router();
@@ -7,11 +6,6 @@ const User = require('../db/user');
 
 
 
-=======
-const  express  = require('express');
-const  router = express.Router();
-
->>>>>>> 354936181f9fec55927ae77519721f42d65d6f92
 // Route paths are prepended with /auth
 
 router.get('/',(req,res)=>{
@@ -33,7 +27,6 @@ function validateUser(user){
 
 router.post('/signup',(req,res, next)=>{
     if(validateUser(req.body)){
-<<<<<<< HEAD
         User
             .getOne(req.body.user_id)
             .then(user =>{
@@ -65,11 +58,6 @@ router.post('/signup',(req,res, next)=>{
                     next(new Error('Email in use'))
                 }
             });
-=======
-        res.json({
-            message:'CHECK'
-        })
->>>>>>> 354936181f9fec55927ae77519721f42d65d6f92
     } else{
         next(new Error('Invalid user'));
     }

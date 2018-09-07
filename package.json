@@ -15,15 +15,10 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cookie-parser": "^1.4.3",
-<<<<<<< HEAD
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "knex": "^0.15.2",
-=======
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
->>>>>>> 354936181f9fec55927ae77519721f42d65d6f92
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
