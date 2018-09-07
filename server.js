@@ -1,23 +1,29 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const {Pool,Client} = require('pg');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var {Client} = require('pg');
+
+var dbconfig = require('./db/dbconfig');
+var  auth  =  require('./auth/index');
 
 const app = express();
+const client = new Client(dbconfig);
 
-const client = new Client({
-    host: '13.209.187.220',
-        user: 'makersmaker',
-        password: 'makersmaker',
-        database: 'makersmaker',
-        port: 5432
-  });
-  
+client.connect();
 
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/auth',auth);
 
 
-app.get('/api/customers', (req,res)=>{
+app.get('/api/customers', (req, res)=>{
     const customers = [
         {id : '1', firstName: 'John', lastName: 'Doe'},
         {id : '2', firstName: 'Steve', lastName: 'Smith'},
@@ -28,31 +34,34 @@ app.get('/api/customers', (req,res)=>{
 });
 
 
-app.post('/regist', (req,res)=>{
-    var user_id = req.body.user_id,
-        password = req.body.password,
-        name = req.body.name;
+app.get('/chk', (req, res)=>{
 
-    const text = 'INSERT INTO public.users (user_id,password,name) VALUES($1,$2,$3)'
-    const values = [user_id , password ,name];
-    client.connect();
-    client.query(text,values)
+    client.query('SELECT * FROM users')
         .then(res => {
-            console.log('registration is done!');
-            client.end();        
+            console.log(res.rows);
+            client.end();
         })
         .catch(e => console.error(e.stack)
-    )
-    
-    // client.query('SELECT * FROM users')
-    //     .then(res => {
-    //         console.log(res.rows)
-    //     })
-    //     .catch(e => console.error(e.stack))
+        )
+    // 이미 존재 하는 아이디 걸러네기
+});
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    next(createError(404));
 });
 
 
+// error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.status(err.status || 500);
+    res.json({
+        message : err.message,
+        error : req.app.get('env') === 'development' ? err : {}
+    })
+});
 
 const port = 5000;
 
-app.listen(port, () => console.log('Server started on port ${port}'));
+app.listen(port, () => console.log('Server started on port',port));
