@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Customers from './components/customers/customers';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Header from './components/Header';
+
+import Home from './routes/Home';
+import About from './routes/About';
+import Posts from './routes/Posts';
+import Login from './routes/Login';
+import NoMatch from './routes/NoMatch';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <Customers />
-      </div>
+      <Router>
+          <div>
+            <Header />
+            <Switch>
+                <Route exact path="/" component = {Home}/>
+                <Route path="/about/:username" component = {About}/>
+                <Route path="/posts" component = {Posts}/>
+                <Route path="/login" component = {Login}/>
+                <Route component = {NoMatch}/>
+            </Switch>
+          </div>
+      </Router>
     );
   }
 }
