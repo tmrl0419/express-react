@@ -23,17 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth',auth);
 
 
-app.get('/api/customers', (req, res)=>{
-    const customers = [
-        {id : '1', firstName: 'John', lastName: 'Doe'},
-        {id : '2', firstName: 'Steve', lastName: 'Smith'},
-        {id : '3', firstName: 'Mary', lastName: 'Swanson'}
-    ];
-
-    res.json(customers);
-});
-
-
 app.get('/chk', (req, res)=>{
 
     client.query('SELECT * FROM users')

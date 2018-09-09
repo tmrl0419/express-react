@@ -1,6 +1,6 @@
 const express  = require('express');
 const bcrypt = require('bcrypt');
-const  router = express.Router();
+const router = express.Router();
 
 const User = require('../db/user');
 
@@ -16,19 +16,19 @@ router.get('/',(req,res)=>{
 
 
 function validateUser(user){
-    const validUserID = typeof user.user_id == 'string'  &&
-                            user.user_id.trim() != '';
+    const validUserEmail = typeof user.user_email == 'string'  &&
+                            user.user_email.trim() != '';
     const validPassword = typeof user.password == 'string' &&
                             user.password.trim() != '' &&
                             user.password.trim().length >= 6;
 
-    return validUserID && validPassword;
+    return validUserEmail && validPassword;
 }
 
 router.post('/signup',(req,res, next)=>{
     if(validateUser(req.body)){
         User
-            .getOne(req.body.user_id)
+            .getEmail(req.body.user_email)
             .then(user =>{
                 console.log('user', user);
 
@@ -39,7 +39,7 @@ router.post('/signup',(req,res, next)=>{
                         .then((hash) => {
                             // Store hash in your password DB.
                             const user = {
-                                user_id : req.body.user_id,
+                                email : req.body.user_email,
                                 password : hash,
                                 name : req.body.name,
                             };
