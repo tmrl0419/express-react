@@ -1,9 +1,7 @@
 const knex = require('./connection');
 
 module.exports = {
-    getProject: function (id) {
-        return knex('project').where('projectName', projectName);
-    },
+
     getEvents : function(projectName){
         //return knex('users').insert(user, 'id').then(ibs =>{
           //  return ibs[0];});

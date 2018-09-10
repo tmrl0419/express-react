@@ -58,13 +58,13 @@ class Posts extends Component {
                 {/*<link rel="stylesheet" href="css/color/color7.css">*/}
                 {/*<link rel="stylesheet" href="css/color/color8.css">*/}
                 {/* Book Preloader */}
-                <div className="book_preload">
-                    <div className="book">
-                        <div className="book__page"/>
-                        <div className="book__page"/>
-                        <div className="book__page"/>
-                    </div>
-                </div>
+                {/*<div className="book_preload">*/}
+                    {/*<div className="book">*/}
+                        {/*<div className="book__page"/>*/}
+                        {/*<div className="book__page"/>*/}
+                        {/*<div className="book__page"/>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
                 {/*/ End Book Preloader */}
                 {/* Header */}
                 <header className="header">
@@ -205,27 +205,27 @@ class Posts extends Component {
                             </div>
                         </div>
                         {/*/ End Single Slider */}
-                        {/* Single Slider */}
-                        <div className="single-slider overlay"
-                             style={{backgroundImage: 'url("https://cdn-images-1.medium.com/max/1000/1*zTYrUVqltB-pUv_w8s_HAA.jpeg")'}}
-                             data-stellar-background-ratio="0.5">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-12">
-                                        <div className="slider-text text-center">
-                                            <h1>Learn A to Z about
-                                                <span>Computer Science</span> &amp; Applications</h1>
-                                            <p>Our mission is to empower clients, colleagues, and communities to achieve
-                                                aspirations while building lasting, caring
-                                                relationships.</p>
-                                            <div className="button">
-                                                <a href="courses.html" className="btn primary">What to Learn</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {/*/!* Single Slider *!/*/}
+                        {/*<div className="single-slider overlay"*/}
+                             {/*style={{backgroundImage: 'url("https://cdn-images-1.medium.com/max/1000/1*zTYrUVqltB-pUv_w8s_HAA.jpeg")'}}*/}
+                             {/*data-stellar-background-ratio="0.5">*/}
+                            {/*<div className="container">*/}
+                                {/*<div className="row">*/}
+                                    {/*<div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-12">*/}
+                                        {/*<div className="slider-text text-center">*/}
+                                            {/*<h1>Learn A to Z about*/}
+                                                {/*<span>Computer Science</span> &amp; Applications</h1>*/}
+                                            {/*<p>Our mission is to empower clients, colleagues, and communities to achieve*/}
+                                                {/*aspirations while building lasting, caring*/}
+                                                {/*relationships.</p>*/}
+                                            {/*<div className="button">*/}
+                                                {/*<a href="courses.html" className="btn primary">What to Learn</a>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
                         {/*/ End Single Slider */}
                     </div>
                 </section>
@@ -390,7 +390,7 @@ class Posts extends Component {
                                     <div className="single-widget about">
                                         <div className="logo">
                                             <a href="#">
-                                                <img src="images/logo2.png" alt="#"/>
+                                                {/*<img src="images/logo2.png" alt="#"/>*/}
                                             </a>
                                         </div>
                                         <p>Best education platform for computer science majoring

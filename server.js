@@ -7,6 +7,7 @@ var {Client} = require('pg');
 
 var dbconfig = require('./db/dbconfig');
 var  auth  =  require('./auth/index');
+var  scheduler  =  require('./scheduler/index');
 
 const app = express();
 const client = new Client(dbconfig);
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/auth',auth);
+app.use('/scheduler',scheduler);
 
 
 app.get('/chk', (req, res)=>{
